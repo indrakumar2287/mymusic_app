@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_audio_query/flutter_audio_query.dart';
 import 'package:just_audio/just_audio.dart';
 
+import 'main.dart';
+
 class MusicPlayer extends StatefulWidget {
   SongInfo songInfo;
   Function changeTrack;
@@ -59,9 +61,11 @@ class MusicPlayerState extends State<MusicPlayer> {
     return [duration.inMinutes, duration.inSeconds].map((element)=>element.remainder(60).toString().padLeft(2, '0')).join(':');
   }
 
+  @override
   Widget build(context) {
+    MaterialColor mycolor = MaterialColor(0xFFe3cea6, color);
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white,leading: IconButton(onPressed: ()  {
+      appBar: AppBar(backgroundColor: mycolor,leading: IconButton(onPressed: ()  {
         Navigator.of(context).pop();
       },icon: Icon(Icons.arrow_back_ios_sharp,color: Colors.black)),title: Text('Now Playing', style: TextStyle(color: Colors.black)),),
       body: Container(
